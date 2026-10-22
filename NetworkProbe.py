@@ -1,6 +1,7 @@
 #RUns probes, collects measurements
 import subprocess as sp
 Hostname = input("Enter Domain: ")
+
 try:
     result = sp.run(["ping", "-c", "1", Hostname], capture_output = True, text=True, timeout = 5)
     
