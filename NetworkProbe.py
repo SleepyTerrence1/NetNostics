@@ -4,6 +4,7 @@ Hostname = input("Enter Domain: ")
 
 try:
     print("Please wait for results...")
+    result = sp.run(["ping", "-c", "10", Hostname], capture_output = True, text=True, timeout = 15)
     
     if result.returncode == 0:
         print(f"\n{result.stdout}")
