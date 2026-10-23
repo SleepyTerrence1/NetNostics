@@ -3,7 +3,7 @@ import subprocess as sp
 Hostname = input("Enter Domain: ")
 
 try:
-    result = sp.run(["ping", "-c", "1", Hostname], capture_output = True, text=True, timeout = 5)
+    print("Please wait for results...")
     
     if result.returncode == 0:
         print(f"\n{result.stdout}")
