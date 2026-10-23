@@ -8,7 +8,7 @@ try:
     if result.returncode == 0:
         print(f"\n{result.stdout}")
     else:
-        print(result.stderr if result.stderr else "Invaild Domain")
+        print(result.stderr if result.stderr else "Ping failed; Check domain and try again.")
     
 except sp.TimeoutExpired:
     print("Server Timed Out")
