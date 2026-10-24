@@ -10,3 +10,8 @@ def MinRTT(List):
 
 def MaxRTT(List):
     return st.median_high(List)
+
+ListMOD = [t for t in list if t is not None]
+print(AverageRTT(ListMOD))
+print(MaxRTT(ListMOD))
+print(MinRTT(ListMOD))
