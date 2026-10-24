@@ -1,6 +1,6 @@
 #Calculate the results of measurements
 import statistics as st
-list = [56, 30, 28, None, 28, None]
+list = [56.2, 30.9, 28.5, None, 28.2, None]
 
 def AverageRTT(List):
     return st.mean(List)
