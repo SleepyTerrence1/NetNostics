@@ -24,7 +24,7 @@ def NetworkProbeLauncher():
                 result = sp.run(["ping", "-c", "1", Hostname], capture_output = True, text=True, timeout = 5)
             except sp.TimeoutExpired: 
                 Extracted_Time.append(None)
-                print("Server Timed Out")
+                print(f"Server Timed Out on ping {i+1}")
 
                 continue
         

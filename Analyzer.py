@@ -26,7 +26,8 @@ try:
     MaxRTT(ListMOD)
     MinRTT(ListMOD)
     PacketAnyalsis(list)
-except
+except:
+    pass
 
 
 """
