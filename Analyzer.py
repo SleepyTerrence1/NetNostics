@@ -1,6 +1,8 @@
 #Calculate the results of measurements
 from statistics import mean
-list = [56.2, 30.9, 28.5, None, 28.2, None]
+list1 = [10.0, 20.0, 30.0]
+list2 = [10.0, None, 30.0, None]
+list3 = [None, None, None]
 
 def AverageRTT(listThing):
     return mean(listThing)
@@ -17,22 +19,8 @@ def PacketAnyalsis(listThing):
     total_sent = len(listThing)
     total_recieved = len(sucessful_pings)
     loss_percent = ((total_sent - total_recieved) / total_sent) * 100
-    print(f"Packets Sent: {total_sent} | Recieved: {total_recieved} | Loss: {loss_percent}")
 
-ListMOD = [t for t in list if t is not None]
+    return total_sent, total_recieved, loss_percent
 
-try:
-    AverageRTT(ListMOD)
-    MaxRTT(ListMOD)
-    MinRTT(ListMOD)
-    PacketAnyalsis(list)
-except:
-    pass
-
-
-"""
-print(AverageRTT(ListMOD))
-print(MaxRTT(ListMOD))
-print(MinRTT(ListMOD))
-PacketAnyalsis(list)
-"""
+ListMOD = [t for t in list3 if t is not None]
+Functions = [AverageRTT, MinRTT, MaxRTT, PacketAnyalsis]
