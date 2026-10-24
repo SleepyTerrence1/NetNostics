@@ -1,16 +1,23 @@
 #Calculate the results of measurements
 from statistics import mean
+from NetworkProbe import NetworkProbeLauncher
 list1 = [10.0, 20.0, 30.0]
 list2 = [10.0, None, 30.0, None]
 list3 = [None, None, None]
 
 def AverageRTT(listThing):
+    if not sucessful_pings:
+        return "N/A"
     return mean(listThing)
 
 def MinRTT(listThing):
+    if not sucessful_pings:
+        return "N/A"
     return min(listThing)
 
 def MaxRTT(ListThing):
+    if not sucessful_pings:
+        return "N/A"
     return max(ListThing)
 
 def PacketAnyalsis(listThing):
