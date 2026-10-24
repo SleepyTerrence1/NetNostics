@@ -42,15 +42,9 @@ def NetworkProbeLauncher():
                 print(f"Ping {i+1}: Failed")
                 print(f"{result.stderr}")
 
-        sucessful_pings = [t for t in Extracted_Time if t is not None]
-
-        total_sent = len(Extracted_Time)
-        total_recieved = len(sucessful_pings)
-        loss_percent = ((total_sent - total_recieved) / total_sent) * 100
-
-        print(f"\nPackets Sent: {total_sent} | Recieved: {total_recieved} | Loss: {float(loss_percent)}")
+        return Extracted_Time
 
     except FileNotFoundError:
         print("Ping is not installed")
 if __name__ == "__main__":
-    NetworkProbeLauncher()
+    data = NetworkProbeLauncher()
