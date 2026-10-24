@@ -11,7 +11,16 @@ def MinRTT(List):
 def MaxRTT(List):
     return st.median_high(List)
 
+def PacketAnyalsis(list):
+    sucessful_pings = [t for t in list if t is not None]
+
+    total_sent = len(list)
+    total_recieved = len(sucessful_pings)
+    loss_percent = ((total_sent - total_recieved) / total_sent) * 100
+    print(f"Packets Sent: {total_sent} | Recieved: {total_recieved} | Loss: {loss_percent}")
+
 ListMOD = [t for t in list if t is not None]
 print(AverageRTT(ListMOD))
 print(MaxRTT(ListMOD))
 print(MinRTT(ListMOD))
+PacketAnyalsis(list)
