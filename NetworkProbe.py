@@ -7,7 +7,10 @@ def NetworkProbeLauncher():
     while True:
         try:
             Probe_Amount = int(input('How many probes: '))
-            break
+            if Probe_Amount >= 1:
+                break
+            else:
+                print("\nPlease enter a number 1 or greater")
         except ValueError:
             print("")
             print("Not vaild integer")
