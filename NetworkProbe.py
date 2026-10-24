@@ -1,16 +1,26 @@
 #RUns probes, collects measurements
 import subprocess as sp
 Hostname = input("Enter Domain: ")
+Extracted_Time = [
 
+]
 try:
     print("Please wait for results...")
-    result = sp.run(["ping", "-c", "10", Hostname], capture_output = True, text=True, timeout = 15)
-    
-    if result.returncode == 0:
-        print(f"\n{result.stdout}")
-    else:
-        print(result.stderr if result.stderr else "Ping failed; Check domain and try again.")
-    
+     
+    for i in range(10):
+        result = sp.run(["ping", "-c", "1", Hostname], capture_output = True, text=True, timeout = 15)
+        if result.returncode == 0 and "time=" in result.stdout:
+            SplitThing = result.stdout.split("time=")[1]
+            time_num = float(SplitThing.split(" ")[0])
+
+            Extracted_Time.append(time_num)
+
+            print(f"Ping {i+1}: Recieved reply in {time_num} ms")
+        else:
+            Extracted_Time.append(None)
+            print(f"Ping {i+1}: Failed")
+            print(f"Error: {result.stderr}")
+
 except sp.TimeoutExpired:
     print("Server Timed Out")
 except FileNotFoundError:
