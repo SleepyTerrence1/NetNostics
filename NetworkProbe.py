@@ -1,7 +1,15 @@
 #RUns probes, collects measurements
 import subprocess as sp
+
 Hostname = input("Enter Domain: ")
-Probe_Amount = int(input('How many probes: '))
+while True:
+    try:
+        Probe_Amount = int(input('How many probes: '))
+        break
+    except ValueError:
+        print("")
+        print("Not vaild integer")
+
 Extracted_Time = [
 
 ]
@@ -30,7 +38,7 @@ try:
 
             Extracted_Time.append(None)
             print(f"Ping {i+1}: Failed")
-            print(f"Error: {result.stderr}")
+            print(f"{result.stderr}")
 
     sucessful_pings = [t for t in Extracted_Time if t is not None]
 
