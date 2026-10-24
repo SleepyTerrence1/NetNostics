@@ -12,8 +12,7 @@ def NetworkProbeLauncher():
             else:
                 print("\nPlease enter a number 1 or greater")
         except ValueError:
-            print("")
-            print("Not vaild integer")
+            print("\nNot vaild integer")
 
     Extracted_Time = []
     try:
