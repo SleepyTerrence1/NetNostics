@@ -47,7 +47,7 @@ def NetworkProbeLauncher():
         loss_percent = ((total_sent - total_recieved) / total_sent) * 100
 
         print("")
-        print(f"Packets Sent: {total_sent} | Recieved: {total_recieved} | Loss: {loss_percent}")
+        print(f"Packets Sent: {total_sent} | Recieved: {total_recieved} | Loss: {float(loss_percent)}")
 
     except FileNotFoundError:
         print("Ping is not installed")
