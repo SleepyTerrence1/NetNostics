@@ -51,7 +51,5 @@ def NetworkProbeLauncher():
 
     except FileNotFoundError:
         print("Ping is not installed")
-
-
 if __name__ == "__main__":
     NetworkProbeLauncher()
