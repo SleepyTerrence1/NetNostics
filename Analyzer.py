@@ -24,3 +24,15 @@ def PacketAnyalsis(listThing):
 
 ListMOD = [t for t in list3 if t is not None]
 Functions = [AverageRTT, MinRTT, MaxRTT, PacketAnyalsis]
+
+try:
+    for function in Functions:
+        try:
+            function(ListMOD, ListMOD, ListMOD, list3)
+        except:
+            pass
+except:
+    pass
+
+
+#print(f"\nPackets Sent: {total_sent} | Recieved: {total_recieved} | Loss: {float(loss_percent)}")
