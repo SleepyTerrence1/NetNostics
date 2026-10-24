@@ -8,8 +8,17 @@ try:
     print("Please wait for results...")
      
     for i in range(10):
-        result = sp.run(["ping", "-c", "1", Hostname], capture_output = True, text=True, timeout = 15)
+
+        try:
+            result = sp.run(["ping", "-c", "1", Hostname], capture_output = True, text=True, timeout = 5)
+        except sp.TimeoutExpired: 
+            Extracted_Time.append(None)
+            print("Server Timed Out")
+
+            continue
+        
         if result.returncode == 0 and "time=" in result.stdout:
+
             SplitThing = result.stdout.split("time=")[1]
             time_num = float(SplitThing.split(" ")[0])
 
@@ -17,6 +26,7 @@ try:
 
             print(f"Ping {i+1}: Recieved reply in {time_num} ms")
         else:
+
             Extracted_Time.append(None)
             print(f"Ping {i+1}: Failed")
             print(f"Error: {result.stderr}")
@@ -30,7 +40,7 @@ try:
     print("")
     print(f"Packets Sent: {total_sent} | Recieved: {total_recieved} | Loss: {loss_percent}")
 
-except sp.TimeoutExpired:
-    print("Server Timed Out")
 except FileNotFoundError:
     print("Ping is not installed")
+
+
