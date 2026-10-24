@@ -7,3 +7,6 @@ def AverageRTT(List):
 
 def MinRTT(List):
     return st.median_low(List)
+
+def MaxRTT(List):
+    return st.median_high(List)
