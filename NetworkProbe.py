@@ -21,6 +21,7 @@ try:
             print(f"Ping {i+1}: Failed")
             print(f"Error: {result.stderr}")
 
+    sucessful_pings = [t for t in Extracted_Time if t is not None]
 except sp.TimeoutExpired:
     print("Server Timed Out")
 except FileNotFoundError:
