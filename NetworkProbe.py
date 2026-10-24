@@ -24,6 +24,7 @@ try:
     sucessful_pings = [t for t in Extracted_Time if t is not None]
     total_sent = len(Extracted_Time)
     total_recieved = len(sucessful_pings)
+    loss_percent = ((total_sent - total_recieved) / total_sent) * 100
 except sp.TimeoutExpired:
     print("Server Timed Out")
 except FileNotFoundError:
