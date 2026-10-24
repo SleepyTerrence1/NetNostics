@@ -1,13 +1,14 @@
 #RUns probes, collects measurements
 import subprocess as sp
 Hostname = input("Enter Domain: ")
+Probe_Amount = int(input('How many probes: '))
 Extracted_Time = [
 
 ]
 try:
     print("Please wait for results...")
      
-    for i in range(10):
+    for i in range(Probe_Amount):
 
         try:
             result = sp.run(["ping", "-c", "1", Hostname], capture_output = True, text=True, timeout = 5)
