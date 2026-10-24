@@ -1,5 +1,5 @@
 #Calculate the results of measurements
-import NetworkProbe as NWP
+list = [56, 30, 28, None, 28, None]
 
 def AverageRTT(List):
     mean(List)
